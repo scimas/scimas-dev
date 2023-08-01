@@ -1,0 +1,21 @@
+[package]
+name = "scimas-dev"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+axum = "0.6.19"
+axum-server = { version = "0.5.1", features = ["tls-rustls"] }
+badam-sat-server = { git = "https://github.com/scimas/badam-sat.git", tag = "v0.4.0" }
+clap = { version = "4.3.19", features = ["derive"] }
+ed25519-compact = { version = "2.0.4", default-features = false, features = [
+    "pem",
+] }
+env_logger = "0.10.0"
+pasetors = { version = "0.6.7", default-features = false, features = [
+    "v4",
+    "std",
+] }
+tokio = { version = "1.29.1", features = ["rt-multi-thread", "macros"] }
