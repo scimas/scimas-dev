@@ -46,19 +46,29 @@ async fn main() {
     let mut sign_key_file = File::open(&args.signing_key).unwrap();
     let paseto_key = read_key_pair(&mut sign_key_file).unwrap();
 
+    let frontend_path = PathBuf::from(args.frontend_dir);
+    let badam_sat_frontend_dir = frontend_path.join("badam-sat");
     let (badam_sat_router, badam_sat_server) =
-        badam_sat_server::badam_sat_router(paseto_key, 1 << 6, args.frontend_dir);
+        badam_sat_server::badam_sat_router(paseto_key.clone(), 1 << 6, badam_sat_frontend_dir);
+
+    let judgment_frontend_dir = frontend_path.join("judgment");
+    let (judgment_router, judgment_server) =
+        judgment_server::judgment_router(paseto_key.clone(), 1 << 6, judgment_frontend_dir);
     {
-        let server = badam_sat_server.clone();
+        let badam_sat_server = badam_sat_server.clone();
+        let judgment_server = judgment_server.clone();
         tokio::spawn(async move {
             loop {
-                tokio::time::sleep(Duration::from_secs(120)).await;
-                server.write().await.remove_finished_rooms();
+                tokio::time::sleep(Duration::from_secs(240)).await;
+                badam_sat_server.write().await.remove_finished_rooms();
+                judgment_server.write().await.remove_finished_rooms();
             }
         });
     }
 
-    let app_router = Router::new().nest("/badam_sat", badam_sat_router);
+    let app_router = Router::new()
+        .nest("/badam_sat", badam_sat_router)
+        .nest("/judgment", judgment_router);
 
     let address: SocketAddr = args.address.parse().unwrap();
 

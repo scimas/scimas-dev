@@ -14,6 +14,7 @@ ed25519-compact = { version = "2.0.4", default-features = false, features = [
     "pem",
 ] }
 env_logger = "0.10.0"
+judgment-server = { git = "https://github.com/scimas/judgment.git", tag = "v0.1.0" }
 pasetors = { version = "0.6.7", default-features = false, features = [
     "v4",
     "std",
