@@ -678,7 +678,7 @@ dependencies = [
 [[package]]
 name = "judgment"
 version = "0.1.0"
-source = "git+https://github.com/scimas/judgment.git?tag=v0.1.0#a0ae41bf4bc25365f26d38c412819b177d1ffc53"
+source = "git+https://github.com/scimas/judgment.git?tag=v0.2.0#908adf7bb6738a1903fe479255cfdda18e7666b7"
 dependencies = [
  "card-deck 0.1.1",
  "rand",
@@ -690,7 +690,7 @@ dependencies = [
 [[package]]
 name = "judgment-server"
 version = "0.1.0"
-source = "git+https://github.com/scimas/judgment.git?tag=v0.1.0#a0ae41bf4bc25365f26d38c412819b177d1ffc53"
+source = "git+https://github.com/scimas/judgment.git?tag=v0.2.0#908adf7bb6738a1903fe479255cfdda18e7666b7"
 dependencies = [
  "axum",
  "card-deck 0.1.1",
