@@ -185,10 +185,10 @@ dependencies = [
 
 [[package]]
 name = "badam-sat"
-version = "0.1.0"
-source = "git+https://github.com/scimas/badam-sat.git?tag=v0.4.0#87040db0e89046698fc41d8d70665089ec1328f8"
+version = "0.2.0"
+source = "git+https://github.com/scimas/badam-sat.git?tag=v0.5.0#6f5d0ec5deffbe2d26860ccccd28970cee1b0550"
 dependencies = [
- "card-deck 0.1.0",
+ "card-deck",
  "rand",
  "serde",
  "thiserror",
@@ -196,12 +196,12 @@ dependencies = [
 
 [[package]]
 name = "badam-sat-server"
-version = "0.1.0"
-source = "git+https://github.com/scimas/badam-sat.git?tag=v0.4.0#87040db0e89046698fc41d8d70665089ec1328f8"
+version = "0.2.0"
+source = "git+https://github.com/scimas/badam-sat.git?tag=v0.5.0#6f5d0ec5deffbe2d26860ccccd28970cee1b0550"
 dependencies = [
  "axum",
  "badam-sat",
- "card-deck 0.1.0",
+ "card-deck",
  "log",
  "pasetors",
  "serde",
@@ -258,17 +258,8 @@ checksum = "89b2fd2a0dcf38d7971e2194b6b6eebab45ae01067456a7fd93d5547a61b70be"
 
 [[package]]
 name = "card-deck"
-version = "0.1.0"
-source = "git+https://github.com/scimas/card-deck.git#0e4108b44f6f61ba6255f69a6e56901adff94d27"
-dependencies = [
- "rand",
- "serde",
-]
-
-[[package]]
-name = "card-deck"
-version = "0.1.1"
-source = "git+https://github.com/scimas/card-deck.git?tag=v0.1.1#6e3bf8643b5a443ba183605d1b51173093604f32"
+version = "0.2.1"
+source = "git+https://github.com/scimas/card-deck.git?tag=v0.2.1#e575b485f82d16e74bea795506d600a02f099f13"
 dependencies = [
  "rand",
  "serde",
@@ -677,10 +668,10 @@ dependencies = [
 
 [[package]]
 name = "judgment"
-version = "0.1.0"
-source = "git+https://github.com/scimas/judgment.git?tag=v0.2.0#908adf7bb6738a1903fe479255cfdda18e7666b7"
+version = "0.3.0"
+source = "git+https://github.com/scimas/judgment.git?tag=v0.3.0#4c71940ba5c8d4bff8bd1fa88c32b4bf44f29221"
 dependencies = [
- "card-deck 0.1.1",
+ "card-deck",
  "rand",
  "rand_chacha",
  "serde",
@@ -689,11 +680,11 @@ dependencies = [
 
 [[package]]
 name = "judgment-server"
-version = "0.1.0"
-source = "git+https://github.com/scimas/judgment.git?tag=v0.2.0#908adf7bb6738a1903fe479255cfdda18e7666b7"
+version = "0.3.0"
+source = "git+https://github.com/scimas/judgment.git?tag=v0.3.0#4c71940ba5c8d4bff8bd1fa88c32b4bf44f29221"
 dependencies = [
  "axum",
- "card-deck 0.1.1",
+ "card-deck",
  "judgment",
  "log",
  "pasetors",
@@ -1050,18 +1041,18 @@ dependencies = [
 
 [[package]]
 name = "serde"
-version = "1.0.183"
+version = "1.0.171"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "32ac8da02677876d532745a130fc9d8e6edfa81a269b107c5b00829b91d8eb3c"
+checksum = "30e27d1e4fd7659406c492fd6cfaf2066ba8773de45ca75e855590f856dc34a9"
 dependencies = [
  "serde_derive",
 ]
 
 [[package]]
 name = "serde_derive"
-version = "1.0.183"
+version = "1.0.171"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aafe972d60b0b9bee71a91b92fee2d4fb3c9d7e8f6b179aa99f27203d99a4816"
+checksum = "389894603bd18c46fa56231694f8d827779c0951a667087194cf9de94ed24682"
 dependencies = [
  "proc-macro2",
  "quote",
