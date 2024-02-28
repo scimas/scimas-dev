@@ -8,15 +8,19 @@ edition = "2021"
 [dependencies]
 axum = { version = "0.6.19", features = ["http2"] }
 axum-server = { version = "0.5.1", features = ["tls-rustls"] }
-badam-sat-server = { git = "https://github.com/scimas/badam-sat.git", tag = "v0.5.0" }
+badam-sat-server = { git = "https://github.com/scimas/badam-sat.git", tag = "v0.6.0" }
 clap = { version = "4.3.19", features = ["derive"] }
 ed25519-compact = { version = "2.0.4", default-features = false, features = [
     "pem",
 ] }
 env_logger = "0.10.0"
-judgment-server = { git = "https://github.com/scimas/judgment.git", version = "0.3.1", tag = "v0.3.1" }
+judgment-server = { git = "https://github.com/scimas/judgment.git", version = "0.3.2", tag = "v0.3.2" }
 pasetors = { version = "0.6.7", default-features = false, features = [
     "v4",
     "std",
 ] }
 tokio = { version = "1.29.1", features = ["rt-multi-thread", "macros"] }
+
+[profile.release]
+strip = true
+lto = true

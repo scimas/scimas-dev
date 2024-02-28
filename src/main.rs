@@ -48,19 +48,17 @@ async fn main() {
 
     let frontend_path = PathBuf::from(args.frontend_dir);
     let badam_sat_frontend_dir = frontend_path.join("badam-sat");
-    let (badam_sat_router, badam_sat_server) =
+    let badam_sat_router =
         badam_sat_server::badam_sat_router(paseto_key.clone(), 1 << 6, badam_sat_frontend_dir);
 
     let judgment_frontend_dir = frontend_path.join("judgment");
     let (judgment_router, judgment_server) =
         judgment_server::judgment_router(paseto_key.clone(), 1 << 6, judgment_frontend_dir);
     {
-        let badam_sat_server = badam_sat_server.clone();
         let judgment_server = judgment_server.clone();
         tokio::spawn(async move {
             loop {
                 tokio::time::sleep(Duration::from_secs(240)).await;
-                badam_sat_server.write().await.remove_finished_rooms();
                 judgment_server.write().await.remove_finished_rooms();
             }
         });
